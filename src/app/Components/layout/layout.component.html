@@ -1,0 +1,51 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h2>Sale System</h2>
+    <button mat-icon-button (click)="sidenav.toggle();">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav opened="true" mode="side" style="width: 200px;">
+    <mat-nav-list>
+
+      <mat-list-item routerLink="/pages/dashboard">
+        <mat-icon mat-list-icon>dashboard</mat-icon>
+        <div mat-line>DashBoard</div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/pages/users">
+        <mat-icon mat-list-icon>group</mat-icon>
+        <div mat-line>Users</div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/pages/products">
+        <mat-icon mat-list-icon>collections_bookmark</mat-icon>
+        <div mat-line>Products</div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/pages/sales">
+        <mat-icon mat-list-icon>currency_exchange</mat-icon>
+        <div mat-line>Sales</div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/pages/sale_history">
+        <mat-icon mat-list-icon>edit_note</mat-icon>
+        <div mat-line>Sale History</div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/pages/report">
+        <mat-icon mat-list-icon>receipt</mat-icon>
+        <div mat-line>Reports</div>
+      </mat-list-item>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 90vh;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
