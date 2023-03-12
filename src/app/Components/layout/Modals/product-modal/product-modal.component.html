@@ -1,0 +1,59 @@
+<h1 mat-dialog-title>{{textAction}} Product</h1>
+<mat-dialog-content>
+  <form [formGroup]="productForm">
+    <mat-grid-list cols="1" rowHeight="100px">
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput autocomplete="off" formControlName="name">
+          <mat-icon matSuffix>fit_screen</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="categoryId">
+            <mat-option *ngFor="let item of listCategories" [value]="item.categoryId">
+              {{item.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Stock</mat-label>
+          <input matInput autocomplete="off" formControlName="stock" type="number">
+          <mat-icon matSuffix>edit_square</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Price</mat-label>
+          <input matInput autocomplete="off" formControlName="price">
+          <mat-icon matSuffix>attach_money</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="isActive">
+            <mat-option value="1">Active</mat-option>
+            <mat-option value="0">Inactive</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close color="accent">Back</button>
+  <button mat-raised-button color="primary" [disabled]="productForm.invalid"
+    (click)="productSaveAndUpdate()">{{buttonAction}}</button>
+</mat-dialog-actions>
