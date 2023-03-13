@@ -2,9 +2,9 @@ import { SaleDetail } from "./sale-detail";
 
 export interface Sale {
   saleId?: number,
-  documentNumber?: string,
+  documentNumeber?: string,
   paymentType: string,
   creationDate?: string,
   total: string,
-  saleDetail: SaleDetail[]
+  saleDetails: SaleDetail[]
 }
