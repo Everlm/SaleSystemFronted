@@ -23,7 +23,7 @@ export class SaleService {
   }
 
   Report(startDate: string, endDate: string): Observable<BaseResponse> {
-    return this.http.get<BaseResponse>(`${this.apiUrl}Report?startDate=${startDate}&endDate=${endDate}`)
+    return this.http.get<BaseResponse>(`${this.apiUrl}ReportSale?startDate=${startDate}&endDate=${endDate}`)
   }
 
 

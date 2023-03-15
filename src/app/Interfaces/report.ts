@@ -1,5 +1,5 @@
 export interface Report {
-  documentNumber: string,
+  documentNumeber: string,
   paymentType: string,
   creationDate: string,
   totalSale: string,
