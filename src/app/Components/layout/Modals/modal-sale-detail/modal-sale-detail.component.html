@@ -1,0 +1,66 @@
+<h1 mat-dialog-title>Sale Details</h1>
+<mat-dialog-content>
+  <mat-grid-list cols="4" rowHeight="70px">
+
+    <mat-grid-tile>
+      <mat-form-field appearance="fill" style="width: 95%;">
+        <mat-label>Creation Date</mat-label>
+        <input matInput [(ngModel)]="creationDate">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field appearance="fill" style="width: 95%;">
+        <mat-label>Document Number</mat-label>
+        <input matInput [(ngModel)]="documentNumeber">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field appearance="fill" style="width: 95%;">
+        <mat-label>paymentType</mat-label>
+        <input matInput [(ngModel)]="paymentType">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field appearance="fill" style="width: 95%;">
+        <mat-label>Total</mat-label>
+        <input matInput [(ngModel)]="total">
+      </mat-form-field>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+  <h5>Product List</h5>
+  <table mat-table [dataSource]="saleDetails" class="mat-elevation-z2">
+
+    <ng-container matColumnDef="product">
+      <th mat-header-cell *matHeaderCellDef>Product</th>
+      <td mat-cell *matCellDef="let element"> {{element.productDescription}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>Quantity</th>
+      <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Price</th>
+      <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="total">
+      <th mat-header-cell *matHeaderCellDef>Total</th>
+      <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsTable"></tr>
+    <tr mat-row *matRowDef="let row; columns:columnsTable;"></tr>
+
+  </table>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close cdkFocusInitial color="accent">Back</button>
+</mat-dialog-actions>
